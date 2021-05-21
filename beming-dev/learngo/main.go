@@ -148,16 +148,37 @@
 // 	fmt.Println(nico)
 // }
 
+// package main
+
+// import (
+// 	"fmt"
+
+// 	"github.com/beming-dev/learngo/accounts"
+// )
+
+// func main() {
+// 	account := accounts.NewAccount("nico")
+// 	account.Deposit(10)
+// 	fmt.Println(account)
+// }
+
 package main
 
 import (
 	"fmt"
 
-	"github.com/beming-dev/learngo/accounts"
+	"github.com/beming-dev/learngo/mydict"
 )
 
 func main() {
-	account := accounts.NewAccount("nico")
-	account.Deposit(10)
-	fmt.Println(account.Balance(), account.Owner())
+	dictionary := mydict.Dictionary{}
+	baseWord := "hello"
+	dictionary.Add(baseWord, "First")
+	dictionary.Search(baseWord)
+	dictionary.Delete(baseWord)
+	word, err := dictionary.Search(baseWord)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(word)
 }
